@@ -23,7 +23,12 @@
                 </div>
             </div>
             <div class="col-1 d-flex justify-content-center display-3">
-                <span>+</span>
+                <select class="form-select form-select-lg" name="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">x</option>
+                    <option value="/">÷</option>
+                </select>
             </div>
             <div class="col-1">
                 <div class="form-group mb-2 pb-2 border-bottom border-5">

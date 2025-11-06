@@ -24,12 +24,14 @@ public class FractionServlet extends HttpServlet {
         // Get raw data
         String numerator1 = req.getParameter("numerator1");
         String denominator1 = req.getParameter("denominator1");
+        String operator = req.getParameter("operator");
         String numerator2 = req.getParameter("numerator2");
         String denominator2 = req.getParameter("denominator2");
 
         // Set raw data as attributes
         req.setAttribute("numerator1", numerator1);
         req.setAttribute("denominator1", denominator1);
+        req.setAttribute("operator", operator);
         req.setAttribute("numerator2", numerator2);
         req.setAttribute("denominator2", denominator2);
 
