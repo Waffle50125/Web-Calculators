@@ -53,6 +53,21 @@ public class FractionServlet extends HttpServlet {
             req.setAttribute("numerator2Error", "Second numerator must be an integer");
         }
 
+        String[] validOperators = {"+", "-", "*", "/"};
+        boolean isValidOperator = false;
+        for (String s : validOperators) {
+            // loops through isValidOperator until it finds a match or reaches the end
+            // if a match is found, breaks the loop and sets the flag to valid
+            // if no match is found, then isValidOperator stays false and valid is set to false
+            if (operator.equals(s)) {
+                isValidOperator = true;
+                break;
+            }
+        }
+        if (!isValidOperator) {
+            valid = false;
+        }
+
         if (denominator1 == null || denominator1.isEmpty()) {
             valid = false;
             req.setAttribute("denominator1Error", "First denominator is required");
@@ -89,8 +104,21 @@ public class FractionServlet extends HttpServlet {
 
         // generate response
         if (valid) {
-            Fraction fractionResult = fraction1.add(fraction2);
-            String resultString = String.format("%s + %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
+            Fraction fractionResult = new Fraction();
+            String resultString = "";
+            if (operator.equals("+")) {
+                fractionResult = fraction1.add(fraction2);
+                resultString = String.format("%s + %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
+            } else if (operator.equals("-")) {
+                fractionResult = fraction1.subtract(fraction2);
+                resultString = String.format("%s - %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
+            } else if (operator.equals("*")) {
+                fractionResult = fraction1.multiply(fraction2);
+                resultString = String.format("%s x %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
+            } else if (operator.equals("/")) {
+                fractionResult = fraction1.divide(fraction2);
+                resultString = String.format("%s ÷ %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
+            }
             req.setAttribute("result", resultString);
         }
         // show those fractions

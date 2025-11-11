@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,10 +25,10 @@
             </div>
             <div class="col-1 d-flex justify-content-center display-3">
                 <select class="form-select form-select-lg" name="operator">
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">x</option>
-                    <option value="/">÷</option>
+                    <option <c:if test="${operator eq '+'}">selected</c:if> value="+">+</option>
+                    <option <c:if test="${operator eq '-'}">selected</c:if> value="-">-</option>
+                    <option <c:if test="${operator eq '*'}">selected</c:if> value="*">x</option>
+                    <option <c:if test="${operator eq '/'}">selected</c:if> value="/">÷</option>
                 </select>
             </div>
             <div class="col-1">
