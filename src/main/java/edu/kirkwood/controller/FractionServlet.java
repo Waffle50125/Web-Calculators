@@ -114,7 +114,7 @@ public class FractionServlet extends HttpServlet {
                 resultString = String.format("%s - %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
             } else if (operator.equals("*")) {
                 fractionResult = fraction1.multiply(fraction2);
-                resultString = String.format("%s x %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
+                resultString = String.format("%s × %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());
             } else if (operator.equals("/")) {
                 fractionResult = fraction1.divide(fraction2);
                 resultString = String.format("%s ÷ %s = %s", fraction1.toString(), fraction2.toString(), fractionResult.toString());

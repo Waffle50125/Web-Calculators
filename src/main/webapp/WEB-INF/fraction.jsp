@@ -27,7 +27,7 @@
                 <select class="form-select form-select-lg" name="operator">
                     <option <c:if test="${operator eq '+'}">selected</c:if> value="+">+</option>
                     <option <c:if test="${operator eq '-'}">selected</c:if> value="-">-</option>
-                    <option <c:if test="${operator eq '*'}">selected</c:if> value="*">x</option>
+                    <option <c:if test="${operator eq '*'}">selected</c:if> value="*">×</option>
                     <option <c:if test="${operator eq '/'}">selected</c:if> value="/">÷</option>
                 </select>
             </div>
